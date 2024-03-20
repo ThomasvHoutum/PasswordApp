@@ -35,7 +35,7 @@ namespace Domain.Managers
 
             ActiveUser = new User(password);
             var encryptedString = EncryptionHelper.Encrypt(ActiveUser);
-            WriteFileHelper.WriteMasterPasswordFile(encryptedString);
+            FileHelper.WriteMasterPasswordFile(encryptedString);
         }
 
         /// <summary>
@@ -79,9 +79,12 @@ namespace Domain.Managers
         /// Decrypt the master password
         /// </summary>
         /// <returns> Master password, null if none set</returns>
-        private string? DecryptMasterPassword()
+        private User? DecryptMasterPassword()
         {
-            return "";
+            var encryptedPassword = FileHelper.ReadMasterPasswordFile();
+            return encryptedPassword != null
+                ? EncryptionHelper.Decrypt<User>(encryptedPassword)
+                : null;
         }
 
         /// <summary>

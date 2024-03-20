@@ -1,8 +1,9 @@
+#nullable enable
 using System.IO;
 
 namespace Infrastructure.Helpers;
 
-public static class WriteFileHelper
+public static class FileHelper
 {
     private const string CreditCardsPath = "creditCards.json";
     private const string BankDetailsPath = "bankDetails.json";
@@ -10,6 +11,8 @@ public static class WriteFileHelper
         
     private const string MasterPasswordPath = "masterPassword.json";
 
+    #region Write
+    
     /// <summary>
     /// Write a new encrypted file for credit cards
     /// </summary>
@@ -33,4 +36,40 @@ public static class WriteFileHelper
     /// </summary>
     /// <param name="encryptedText"></param>
     public static void WriteMasterPasswordFile(string encryptedText) => File.WriteAllText(MasterPasswordPath, encryptedText);
+    
+    #endregion
+
+    #region Read
+
+    /// <summary>
+    /// Read file for credit cards
+    /// </summary>
+    public static string? ReadCreditCardsFile() => !DoesFileExist(CreditCardsPath)
+        ? null
+        : File.ReadAllText(CreditCardsPath);
+    
+    /// <summary>
+    /// Read file for bank details
+    /// </summary>
+    public static string? ReadBankDetailsFile() => !DoesFileExist(BankDetailsPath)
+        ? null
+        : File.ReadAllText(BankDetailsPath);
+    
+    /// <summary>
+    /// Read file for login details
+    /// </summary>
+    public static string? ReadLoginDetailsFile() => !DoesFileExist(LoginDetailsPath)
+        ? null
+        : File.ReadAllText(LoginDetailsPath);
+
+    /// <summary>
+    /// Read file for the master password
+    /// </summary>
+    public static string? ReadMasterPasswordFile() => !DoesFileExist(MasterPasswordPath)
+        ? null
+        : File.ReadAllText(MasterPasswordPath);
+
+    #endregion
+
+    private static bool DoesFileExist(string filePath) => File.Exists(filePath);
 }

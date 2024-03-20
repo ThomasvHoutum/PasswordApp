@@ -8,7 +8,7 @@ namespace Infrastructure.Helpers;
 public static class EncryptionHelper
 {
     /// <summary>
-    /// Convert json to an encrypted string
+    /// Convert undefined object to an encrypted string
     /// </summary>
     /// <param name="objectToEncrypt"></param>
     /// <returns></returns>
@@ -25,10 +25,12 @@ public static class EncryptionHelper
     /// </summary>
     /// <param name="encryptedText"></param>
     /// <returns></returns>
-    public static string Decrypt(string encryptedText)
+    public static T Decrypt<T>(string encryptedText)
     {
         byte[] encryptedData = Convert.FromBase64String(encryptedText);
         byte[] decryptedData = ProtectedData.Unprotect(encryptedData, null, DataProtectionScope.CurrentUser);
-        return Encoding.UTF8.GetString(decryptedData);
+        var decryptedString = Encoding.UTF8.GetString(decryptedData);
+
+        return JsonConvert.DeserializeObject<T>(decryptedString);
     }
 }

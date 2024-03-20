@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Windows.Forms;
+using Domain.Managers;
 
 namespace PasswordApp.Forms
 {
     public partial class Manager : Form
     {
+        private PasswordManager _passwordManager;
         
         public Manager()
         {
+            _passwordManager = new PasswordManager();
+            
             InitializeComponent();
             
             PopulateLoginDetailTable();
