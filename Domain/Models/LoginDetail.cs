@@ -10,7 +10,7 @@ namespace Domain.Models
         
         public string Email { get; private set; }
         
-        public string Password { get; private set;}
+        public string Password { get; private set; }
         
         public List<SecurityQuestion> SecurityQuestions { get; private set; }
 
