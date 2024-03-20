@@ -12,7 +12,7 @@
         <AssemblyName>Domain</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
-        <LangVersion>8</LangVersion>
+        <LangVersion>12</LangVersion>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -159,7 +159,6 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Config.cs" />
         <Compile Include="Managers\PasswordManager.cs" />
         <Compile Include="Models\BankDetail.cs" />
         <Compile Include="Models\CreditCard.cs" />
@@ -177,6 +176,12 @@
       <Folder Include="Helpers\" />
       <Folder Include="Interfaces\" />
       <Folder Include="Services\" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+        <Project>{4962af41-433d-4168-8202-38e717bf0f81}</Project>
+        <Name>Infrastructure</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
