@@ -19,6 +19,7 @@ namespace PasswordApp.Forms
                 var masterLoginForm = new MasterLogin(_authenticationManager);
                 masterLoginForm.LoginSuccessful += Initialize;
                 masterLoginForm.Show();
+                masterLoginForm.Focus();
             }
             else
             {

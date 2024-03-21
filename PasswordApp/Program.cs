@@ -21,7 +21,7 @@ namespace PasswordApp
             
             _trayIcon = new NotifyIcon
             {
-                Text = "PasswordApp Manager",
+                Text = "Password Manager",
                 Icon = SystemIcons.Application,
                 Visible = true
             };
