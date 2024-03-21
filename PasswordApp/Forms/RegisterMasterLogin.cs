@@ -20,10 +20,13 @@ namespace PasswordApp.Forms
                 return;
             
             _authenticationManager.SetMasterPassword(PasswordTextBox.Text);
-            // TODO: Login user
             Close();
         }
 
+        /// <summary>
+        /// Check if the entered password is valid
+        /// </summary>
+        /// <returns></returns>
         private bool ValidPassword()
         {
             if (PasswordTextBox.Text == "")

@@ -43,6 +43,7 @@ public class AuthenticationManager
         if (decryptedUser.MasterPassword != masterPassword)
             return new LoginResult(false, "Incorrect password!");
 
+        ActiveUser = decryptedUser;
         return new LoginResult(true);
     }
 
@@ -55,6 +56,12 @@ public class AuthenticationManager
         return false;
     }
 
+    /// <summary>
+    /// Checks if there is an active user logged in
+    /// </summary>
+    /// <returns></returns>
+    public bool IsLoggedIn() => ActiveUser != null;
+    
     /// <summary>
     /// Check if a master password has been set before
     /// </summary>

@@ -8,11 +8,11 @@ namespace PasswordApp.Forms
     {
         private AuthenticationManager _authenticationManager;
         
-        public MasterLogin()
+        public MasterLogin(AuthenticationManager authenticationManager)
         {
             InitializeComponent();
             
-            _authenticationManager = new AuthenticationManager();
+            _authenticationManager = authenticationManager;
             
             if (!_authenticationManager.HasMasterPassword())
             {
