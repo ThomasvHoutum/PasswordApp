@@ -6,12 +6,32 @@ namespace PasswordApp.Forms
 {
     public partial class Manager : Form
     {
+        private readonly AuthenticationManager _authenticationManager;
         private PasswordManager _passwordManager;
         
-        public Manager()
+        public Manager(AuthenticationManager authenticationManager)
         {
+            _authenticationManager = authenticationManager;
             _passwordManager = new PasswordManager();
+
+            if (!_authenticationManager.IsLoggedIn())
+            {
+                var masterLoginForm = new MasterLogin(_authenticationManager);
+                masterLoginForm.LoginSuccessful += Initialize;
+                masterLoginForm.Show();
+            }
+            else
+            {
+                Initialize();
+            }
             
+        }
+
+        /// <summary>
+        /// Initialize form
+        /// </summary>
+        private void Initialize()
+        {
             InitializeComponent();
             
             PopulateLoginDetailTable();

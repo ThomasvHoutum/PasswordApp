@@ -6,7 +6,11 @@ namespace PasswordApp.Forms
 {
     public partial class MasterLogin : Form
     {
-        private AuthenticationManager _authenticationManager;
+        // Create login successful event
+        public delegate void LoginSuccessEventHandler();
+        public event LoginSuccessEventHandler LoginSuccessful;
+        
+        private readonly AuthenticationManager _authenticationManager;
         
         public MasterLogin(AuthenticationManager authenticationManager)
         {
@@ -27,9 +31,14 @@ namespace PasswordApp.Forms
             var loginResult = _authenticationManager.TryLoginUser(PasswordTextBox.Text);
             
             if (loginResult.Success)
+            {
+                LoginSuccessful?.Invoke();
                 Close();
+            }
             else
+            {
                 MessageBox.Show(loginResult.Reason, "Failed to log in", MessageBoxButtons.OK);
+            }
         }
     }
 }
