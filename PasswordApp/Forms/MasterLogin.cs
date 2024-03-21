@@ -1,3 +1,4 @@
+using System;
 using System.Windows.Forms;
 using Domain.Managers;
 
@@ -19,6 +20,16 @@ namespace PasswordApp.Forms
                 registerMasterLoginForm.Show();
                 registerMasterLoginForm.Focus();
             }
+        }
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            var loginResult = _authenticationManager.TryLoginUser(PasswordTextBox.Text);
+            
+            if (loginResult.Success)
+                Close();
+            else
+                MessageBox.Show(loginResult.Reason, "Failed to log in", MessageBoxButtons.OK);
         }
     }
 }

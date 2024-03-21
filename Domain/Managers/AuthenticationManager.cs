@@ -1,5 +1,6 @@
 #nullable enable
 using Domain.Models;
+using Domain.Results;
 using Infrastructure.Helpers;
 
 namespace Domain.Managers;
@@ -33,9 +34,16 @@ public class AuthenticationManager
     /// </summary>
     /// <param name="masterPassword"></param>
     /// <returns>Login success</returns>
-    public bool TryLoginUser(string masterPassword)
+    public LoginResult TryLoginUser(string masterPassword)
     {
-        return false;
+        var decryptedUser = DecryptMasterPassword();
+        if (decryptedUser == null)
+            return new LoginResult(false, "No user found! Create a new master password.");
+
+        if (decryptedUser.MasterPassword != masterPassword)
+            return new LoginResult(false, "Incorrect password!");
+
+        return new LoginResult(true);
     }
 
     /// <summary>
