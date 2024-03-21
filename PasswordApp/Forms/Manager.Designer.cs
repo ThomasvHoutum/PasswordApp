@@ -116,7 +116,7 @@
             this.ControlLoginDetailsTitle.TabIndex = 3;
             this.ControlLoginDetailsTitle.Text = "Control login details";
             // 
-            // PasswordManager
+            // Manager
             // 
             this.AccessibleName = "";
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
@@ -126,7 +126,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ControlLoginDetails);
             this.Controls.Add(this.LoginDetailTable);
-            this.Name = "PasswordManager";
+            this.Name = "Manager";
             this.Text = "PasswordManager";
             ((System.ComponentModel.ISupportInitialize) (this.LoginDetailTable)).EndInit();
             this.ControlLoginDetails.ResumeLayout(false);

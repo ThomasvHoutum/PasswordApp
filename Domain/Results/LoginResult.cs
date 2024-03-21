@@ -10,5 +10,4 @@ public class LoginResult
         Success = success;
         Reason = reason;
     }
-
 }
