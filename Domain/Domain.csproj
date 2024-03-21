@@ -159,6 +159,7 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Managers\AuthenticationManager.cs" />
         <Compile Include="Managers\PasswordManager.cs" />
         <Compile Include="Models\BankDetail.cs" />
         <Compile Include="Models\CreditCard.cs" />
