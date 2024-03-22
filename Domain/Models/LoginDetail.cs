@@ -14,7 +14,7 @@ namespace Domain.Models
         
         public List<SecurityQuestion> SecurityQuestions { get; private set; }
 
-        public LoginDetail(string applicationName, string username, string email, string password, List<SecurityQuestion> securityQuestions)
+        public LoginDetail(string applicationName, string username, string email, string password, List<SecurityQuestion>? securityQuestions)
         {
             ApplicationName = applicationName;
             Username = username;

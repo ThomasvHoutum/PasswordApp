@@ -40,6 +40,8 @@ namespace PasswordApp.Forms
             this.DiscardButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.LoginDetailPanel = new System.Windows.Forms.Panel();
+            this.EmailLabel = new System.Windows.Forms.Label();
+            this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.ApplicationLabel = new System.Windows.Forms.Label();
             this.ApplicationTextBox = new System.Windows.Forms.TextBox();
             this.LoginDetailPanel.SuspendLayout();
@@ -56,7 +58,7 @@ namespace PasswordApp.Forms
             // 
             // PasswordLabel
             // 
-            this.PasswordLabel.Location = new System.Drawing.Point(2, 29);
+            this.PasswordLabel.Location = new System.Drawing.Point(1, 81);
             this.PasswordLabel.Name = "PasswordLabel";
             this.PasswordLabel.Size = new System.Drawing.Size(95, 18);
             this.PasswordLabel.TabIndex = 4;
@@ -65,7 +67,7 @@ namespace PasswordApp.Forms
             // 
             // UsernameLabel
             // 
-            this.UsernameLabel.Location = new System.Drawing.Point(3, 3);
+            this.UsernameLabel.Location = new System.Drawing.Point(1, 29);
             this.UsernameLabel.Name = "UsernameLabel";
             this.UsernameLabel.Size = new System.Drawing.Size(95, 18);
             this.UsernameLabel.TabIndex = 1;
@@ -74,7 +76,7 @@ namespace PasswordApp.Forms
             // 
             // PasswordTextBox
             // 
-            this.PasswordTextBox.Location = new System.Drawing.Point(102, 29);
+            this.PasswordTextBox.Location = new System.Drawing.Point(101, 81);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Size = new System.Drawing.Size(197, 20);
             this.PasswordTextBox.TabIndex = 7;
@@ -82,7 +84,7 @@ namespace PasswordApp.Forms
             // 
             // UsernameTextBox
             // 
-            this.UsernameTextBox.Location = new System.Drawing.Point(102, 3);
+            this.UsernameTextBox.Location = new System.Drawing.Point(100, 29);
             this.UsernameTextBox.Name = "UsernameTextBox";
             this.UsernameTextBox.Size = new System.Drawing.Size(198, 20);
             this.UsernameTextBox.TabIndex = 8;
@@ -123,6 +125,8 @@ namespace PasswordApp.Forms
             // LoginDetailPanel
             // 
             this.LoginDetailPanel.AutoScroll = true;
+            this.LoginDetailPanel.Controls.Add(this.EmailLabel);
+            this.LoginDetailPanel.Controls.Add(this.EmailTextBox);
             this.LoginDetailPanel.Controls.Add(this.ApplicationLabel);
             this.LoginDetailPanel.Controls.Add(this.ApplicationTextBox);
             this.LoginDetailPanel.Controls.Add(this.UsernameTextBox);
@@ -134,9 +138,26 @@ namespace PasswordApp.Forms
             this.LoginDetailPanel.Size = new System.Drawing.Size(333, 343);
             this.LoginDetailPanel.TabIndex = 12;
             // 
+            // EmailLabel
+            // 
+            this.EmailLabel.Location = new System.Drawing.Point(0, 55);
+            this.EmailLabel.Name = "EmailLabel";
+            this.EmailLabel.Size = new System.Drawing.Size(95, 18);
+            this.EmailLabel.TabIndex = 11;
+            this.EmailLabel.Text = "Email *";
+            this.EmailLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // EmailTextBox
+            // 
+            this.EmailTextBox.Location = new System.Drawing.Point(100, 55);
+            this.EmailTextBox.Name = "EmailTextBox";
+            this.EmailTextBox.Size = new System.Drawing.Size(197, 20);
+            this.EmailTextBox.TabIndex = 12;
+            this.EmailTextBox.UseSystemPasswordChar = true;
+            // 
             // ApplicationLabel
             // 
-            this.ApplicationLabel.Location = new System.Drawing.Point(2, 55);
+            this.ApplicationLabel.Location = new System.Drawing.Point(0, 3);
             this.ApplicationLabel.Name = "ApplicationLabel";
             this.ApplicationLabel.Size = new System.Drawing.Size(95, 18);
             this.ApplicationLabel.TabIndex = 9;
@@ -145,7 +166,7 @@ namespace PasswordApp.Forms
             // 
             // ApplicationTextBox
             // 
-            this.ApplicationTextBox.Location = new System.Drawing.Point(102, 55);
+            this.ApplicationTextBox.Location = new System.Drawing.Point(100, 3);
             this.ApplicationTextBox.Name = "ApplicationTextBox";
             this.ApplicationTextBox.Size = new System.Drawing.Size(197, 20);
             this.ApplicationTextBox.TabIndex = 10;
@@ -166,6 +187,9 @@ namespace PasswordApp.Forms
             this.LoginDetailPanel.PerformLayout();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Label EmailLabel;
+        private System.Windows.Forms.TextBox EmailTextBox;
 
         private System.Windows.Forms.Label ApplicationLabel;
         private System.Windows.Forms.TextBox ApplicationTextBox;

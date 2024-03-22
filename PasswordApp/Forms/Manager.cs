@@ -58,7 +58,7 @@ namespace PasswordApp.Forms
 
         private void AddLoginDetailButton_Click(object sender, EventArgs e)
         {
-            
+            new AddLoginDetail(_passwordManager).Show();
         }
     }
 }

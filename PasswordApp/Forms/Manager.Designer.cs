@@ -36,6 +36,8 @@
             this.ModifyButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.AddLoginDetailButton = new System.Windows.Forms.Button();
             this.ControlLoginDetails = new System.Windows.Forms.Panel();
+            this.AddBankDetailButton = new System.Windows.Forms.Button();
+            this.AddCreditCardButton = new System.Windows.Forms.Button();
             this.ControlLoginDetailsTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize) (this.LoginDetailTable)).BeginInit();
             this.ControlLoginDetails.SuspendLayout();
@@ -89,23 +91,43 @@
             // 
             // AddLoginDetailButton
             // 
-            this.AddLoginDetailButton.Location = new System.Drawing.Point(3, 33);
+            this.AddLoginDetailButton.Location = new System.Drawing.Point(3, 84);
             this.AddLoginDetailButton.Name = "AddLoginDetailButton";
             this.AddLoginDetailButton.Size = new System.Drawing.Size(97, 35);
             this.AddLoginDetailButton.TabIndex = 1;
-            this.AddLoginDetailButton.Text = "Add";
+            this.AddLoginDetailButton.Text = "Add Login";
             this.AddLoginDetailButton.UseVisualStyleBackColor = true;
             this.AddLoginDetailButton.Click += new System.EventHandler(this.AddLoginDetailButton_Click);
             // 
             // ControlLoginDetails
             // 
             this.ControlLoginDetails.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ControlLoginDetails.Controls.Add(this.AddBankDetailButton);
+            this.ControlLoginDetails.Controls.Add(this.AddCreditCardButton);
             this.ControlLoginDetails.Controls.Add(this.ControlLoginDetailsTitle);
             this.ControlLoginDetails.Controls.Add(this.AddLoginDetailButton);
             this.ControlLoginDetails.Location = new System.Drawing.Point(12, 231);
             this.ControlLoginDetails.Name = "ControlLoginDetails";
             this.ControlLoginDetails.Size = new System.Drawing.Size(346, 207);
             this.ControlLoginDetails.TabIndex = 2;
+            // 
+            // AddBankDetailButton
+            // 
+            this.AddBankDetailButton.Location = new System.Drawing.Point(246, 84);
+            this.AddBankDetailButton.Name = "AddBankDetailButton";
+            this.AddBankDetailButton.Size = new System.Drawing.Size(97, 35);
+            this.AddBankDetailButton.TabIndex = 5;
+            this.AddBankDetailButton.Text = "Add Bank Detail";
+            this.AddBankDetailButton.UseVisualStyleBackColor = true;
+            // 
+            // AddCreditCardButton
+            // 
+            this.AddCreditCardButton.Location = new System.Drawing.Point(125, 86);
+            this.AddCreditCardButton.Name = "AddCreditCardButton";
+            this.AddCreditCardButton.Size = new System.Drawing.Size(97, 35);
+            this.AddCreditCardButton.TabIndex = 4;
+            this.AddCreditCardButton.Text = "Add Credit Card";
+            this.AddCreditCardButton.UseVisualStyleBackColor = true;
             // 
             // ControlLoginDetailsTitle
             // 
@@ -132,6 +154,9 @@
             this.ControlLoginDetails.ResumeLayout(false);
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button AddCreditCardButton;
+        private System.Windows.Forms.Button AddBankDetailButton;
 
         private System.Windows.Forms.Label ControlLoginDetailsTitle;
 

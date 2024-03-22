@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Domain.Models;
+using Infrastructure.Helpers;
 
 namespace Domain.Managers
 {
@@ -16,7 +17,7 @@ namespace Domain.Managers
 
         public PasswordManager()
         {
-            
+            // TODO: Decrypt and populate lists on initialize
         }
 
         /// <summary>
@@ -32,10 +33,15 @@ namespace Domain.Managers
         public void AddBankDetail(BankDetail bankDetail) => _bankDetails.Add(bankDetail);
         
         /// <summary>
-        /// Add a new login detail
+        /// Saves a new login detail
         /// </summary>
         /// <param name="loginDetail"></param>
-        public void AddLoginDetail(LoginDetail loginDetail) => _loginDetails.Add(loginDetail);
+        public void SaveLoginDetail(LoginDetail loginDetail)
+        {
+            _loginDetails.Add(loginDetail);
+            var encryptedLoginDetails = EncryptionHelper.Encrypt(_loginDetails);
+            FileHelper.WriteLoginDetailsFile(encryptedLoginDetails);
+        }
 
         /// <summary>
         /// 
