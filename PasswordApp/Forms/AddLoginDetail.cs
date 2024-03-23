@@ -8,10 +8,12 @@ namespace PasswordApp.Forms
 {
     public partial class AddLoginDetail : Form
     {
+        private readonly Manager _manager;
         private readonly PasswordManager _passwordManager;
         
-        public AddLoginDetail(PasswordManager passwordManager)
+        public AddLoginDetail(Manager manager, PasswordManager passwordManager)
         {
+            _manager = manager;
             _passwordManager = passwordManager;
             
             InitializeComponent();
@@ -34,6 +36,7 @@ namespace PasswordApp.Forms
                 securityQuestions);
             
             _passwordManager.SaveLoginDetail(loginDetail);
+            _manager.AddToLoginTable(loginDetail.Username, loginDetail.ApplicationName);
             Close();
         }
 

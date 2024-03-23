@@ -45,10 +45,14 @@
             // 
             // LoginDetailTable
             // 
+            this.LoginDetailTable.AllowUserToAddRows = false;
+            this.LoginDetailTable.AllowUserToDeleteRows = false;
             this.LoginDetailTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.LoginDetailTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.Username, this.Application, this.ModifyButton });
             this.LoginDetailTable.Location = new System.Drawing.Point(12, 12);
+            this.LoginDetailTable.MultiSelect = false;
             this.LoginDetailTable.Name = "LoginDetailTable";
+            this.LoginDetailTable.ReadOnly = true;
             this.LoginDetailTable.Size = new System.Drawing.Size(776, 213);
             this.LoginDetailTable.TabIndex = 0;
             this.LoginDetailTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.loginDetailTable_CellContentClick);

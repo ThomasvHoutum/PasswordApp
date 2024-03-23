@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Domain.Models;
 using Infrastructure.Helpers;
@@ -6,18 +7,18 @@ namespace Domain.Managers
 {
     public class PasswordManager
     {
-        private readonly List<CreditCard> _creditCards = new();
+        private List<CreditCard> _creditCards = new();
         public IReadOnlyList<CreditCard> CreditCards => _creditCards.AsReadOnly();
 
-        private readonly List<BankDetail> _bankDetails = new();
+        private List<BankDetail> _bankDetails = new();
         public IReadOnlyList<BankDetail> BankDetails => _bankDetails.AsReadOnly();
 
-        private readonly List<LoginDetail> _loginDetails = new();
+        private List<LoginDetail> _loginDetails = new();
         public IReadOnlyList<LoginDetail> LoginDetails => _loginDetails.AsReadOnly();
 
         public PasswordManager()
         {
-            // TODO: Decrypt and populate lists on initialize
+            DecryptAllAccountEntries();
         }
 
         /// <summary>
@@ -48,7 +49,17 @@ namespace Domain.Managers
         /// </summary>
         private void DecryptAllAccountEntries()
         {
-            
+            var creditCardsFileContent = FileHelper.ReadCreditCardsFile();
+            if (creditCardsFileContent != null)
+                _creditCards = EncryptionHelper.Decrypt<List<CreditCard>>(creditCardsFileContent);
+
+            var bankDetailsFileContent = FileHelper.ReadBankDetailsFile();
+            if (bankDetailsFileContent != null)
+                _bankDetails = EncryptionHelper.Decrypt<List<BankDetail>>(bankDetailsFileContent);
+
+            var loginDetailsFileContent = FileHelper.ReadLoginDetailsFile();
+            if (loginDetailsFileContent != null)
+                _loginDetails = EncryptionHelper.Decrypt<List<LoginDetail>>(loginDetailsFileContent);
         } 
     }
 }

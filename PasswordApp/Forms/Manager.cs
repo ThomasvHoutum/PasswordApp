@@ -12,7 +12,6 @@ namespace PasswordApp.Forms
         public Manager(AuthenticationManager authenticationManager)
         {
             _authenticationManager = authenticationManager;
-            _passwordManager = new PasswordManager();
 
             if (!_authenticationManager.IsLoggedIn())
             {
@@ -29,18 +28,37 @@ namespace PasswordApp.Forms
         }
 
         /// <summary>
+        /// Add new entry to login table
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="application"></param>
+        public void AddToLoginTable(string username = "", string application = "")
+        {
+            LoginDetailTable.Rows.Add(username, application);
+        }
+        
+        /// <summary>
         /// Initialize form
         /// </summary>
         private void Initialize()
         {
+            _passwordManager = new PasswordManager();
             InitializeComponent();
             
             PopulateLoginDetailTable();
         }
 
+        /// <summary>
+        /// Initially populate login table
+        /// </summary>
         private void PopulateLoginDetailTable()
         {
-
+            LoginDetailTable.AllowUserToAddRows = false;
+            
+            foreach (var loginDetail in _passwordManager.LoginDetails)
+            {
+                LoginDetailTable.Rows.Add(loginDetail.Username, loginDetail.ApplicationName);
+            }
         }
         
         private void loginDetailTable_CellContentClick(object sender, DataGridViewCellEventArgs cellEventArgs)
@@ -56,9 +74,7 @@ namespace PasswordApp.Forms
             // Get table entry based on rowindex
         }
 
-        private void AddLoginDetailButton_Click(object sender, EventArgs e)
-        {
-            new AddLoginDetail(_passwordManager).Show();
-        }
+        private void AddLoginDetailButton_Click(object sender, EventArgs e) => 
+            new AddLoginDetail(this, _passwordManager).Show();
     }
 }
