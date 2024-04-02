@@ -1,7 +1,6 @@
-using System;
 using System.Collections.Generic;
-using Domain.Models;
 using Infrastructure.Helpers;
+using Shared.Dtos;
 
 namespace Domain.Managers
 {

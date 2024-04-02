@@ -161,11 +161,6 @@
     <ItemGroup>
         <Compile Include="Managers\AuthenticationManager.cs" />
         <Compile Include="Managers\PasswordManager.cs" />
-        <Compile Include="Models\BankDetail.cs" />
-        <Compile Include="Models\CreditCard.cs" />
-        <Compile Include="Models\LoginDetail.cs" />
-        <Compile Include="Models\SecurityQuestion.cs" />
-        <Compile Include="Models\User.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="Results\LoginResult.cs" />
     </ItemGroup>
@@ -183,6 +178,10 @@
       <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
         <Project>{4962af41-433d-4168-8202-38e717bf0f81}</Project>
         <Name>Infrastructure</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\Shared\Shared.csproj">
+        <Project>{8567cdfa-4b80-4700-9f71-de1c5bcf9425}</Project>
+        <Name>Shared</Name>
       </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>

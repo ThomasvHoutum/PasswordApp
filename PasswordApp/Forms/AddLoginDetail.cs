@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Domain.Managers;
-using Domain.Models;
+using Shared.Dtos;
 
 namespace PasswordApp.Forms
 {
