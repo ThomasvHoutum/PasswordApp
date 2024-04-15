@@ -62,7 +62,7 @@ namespace PasswordApp.Forms
             // 
             // AddLoginDetailTitleLabel
             // 
-            this.AddLoginDetailTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.AddLoginDetailTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddLoginDetailTitleLabel.Location = new System.Drawing.Point(12, 16);
             this.AddLoginDetailTitleLabel.Name = "AddLoginDetailTitleLabel";
             this.AddLoginDetailTitleLabel.Size = new System.Drawing.Size(155, 21);
@@ -104,7 +104,7 @@ namespace PasswordApp.Forms
             // 
             // SaveButton
             // 
-            this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (128)))), ((int) (((byte) (255)))), ((int) (((byte) (128)))));
+            this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.SaveButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SaveButton.Location = new System.Drawing.Point(201, 8);
             this.SaveButton.Name = "SaveButton";
@@ -116,7 +116,7 @@ namespace PasswordApp.Forms
             // 
             // DiscardButton
             // 
-            this.DiscardButton.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (255)))), ((int) (((byte) (128)))), ((int) (((byte) (128)))));
+            this.DiscardButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.DiscardButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DiscardButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.DiscardButton.Location = new System.Drawing.Point(282, 8);
@@ -289,7 +289,6 @@ namespace PasswordApp.Forms
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(197, 20);
             this.EmailTextBox.TabIndex = 12;
-            this.EmailTextBox.UseSystemPasswordChar = true;
             // 
             // ApplicationLabel
             // 
