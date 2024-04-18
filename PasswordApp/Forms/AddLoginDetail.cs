@@ -29,7 +29,8 @@ namespace PasswordApp.Forms
 
             var securityQuestions = GetSecurityQuestions();
             
-            var loginDetail = new LoginDetail(ApplicationTextBox.Text, 
+            var loginDetail = new LoginDetail(
+                ApplicationTextBox.Text, 
                 UsernameTextBox.Text, 
                 EmailTextBox.Text,
                 PasswordTextBox.Text,
