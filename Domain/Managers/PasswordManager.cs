@@ -24,13 +24,23 @@ namespace Domain.Managers
         /// Add a new credit card
         /// </summary>
         /// <param name="creditCard"></param>
-        public void AddCreditCard(CreditCard creditCard) => _creditCards.Add(creditCard);
+        public void AddCreditCard(CreditCard creditCard)
+        {
+            _creditCards.Add(creditCard);
+            var encryptedCreditCards = EncryptionHelper.Encrypt(_creditCards);
+            FileHelper.WriteCreditCardsFile(encryptedCreditCards);
+        }
 
         /// <summary>
         /// Add a new bank detail
         /// </summary>
         /// <param name="bankDetail"></param>
-        public void AddBankDetail(BankDetail bankDetail) => _bankDetails.Add(bankDetail);
+        public void AddBankDetail(BankDetail bankDetail)
+        {
+            _bankDetails.Add(bankDetail);
+            var encryptedBankDetails = EncryptionHelper.Encrypt(_bankDetails);
+            FileHelper.WriteBankDetailsFile(encryptedBankDetails);
+        }
         
         /// <summary>
         /// Saves a new login detail

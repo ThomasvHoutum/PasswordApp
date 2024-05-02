@@ -317,7 +317,7 @@ namespace PasswordApp.Forms
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.AddLoginDetailTitleLabel);
             this.Name = "AddLoginDetail";
-            this.Text = "AddLoginDetail";
+            this.Text = "Add Login Detail";
             this.LoginDetailPanel.ResumeLayout(false);
             this.LoginDetailPanel.PerformLayout();
             this.ResumeLayout(false);

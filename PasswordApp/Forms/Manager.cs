@@ -56,9 +56,13 @@ namespace PasswordApp.Forms
             LoginDetailTable.AllowUserToAddRows = false;
             
             foreach (var loginDetail in _passwordManager.LoginDetails)
-            {
                 LoginDetailTable.Rows.Add(loginDetail.Username, loginDetail.ApplicationName);
-            }
+            
+            foreach (var creditCard in _passwordManager.CreditCards)
+                LoginDetailTable.Rows.Add(creditCard.Issuer, creditCard.Number.ToString());
+            
+            foreach (var bankDetail in _passwordManager.BankDetails)
+                LoginDetailTable.Rows.Add(bankDetail.BankName, bankDetail.Username);
         }
         
         private void loginDetailTable_CellContentClick(object sender, DataGridViewCellEventArgs cellEventArgs)
@@ -76,5 +80,11 @@ namespace PasswordApp.Forms
 
         private void AddLoginDetailButton_Click(object sender, EventArgs e) => 
             new AddLoginDetail(this, _passwordManager).Show();
+
+        private void AddCreditCardButton_Click(object sender, EventArgs e) =>
+            new AddCreditCard(this, _passwordManager).Show();
+
+        private void AddBankDetailButton_Click(object sender, EventArgs e) =>
+            new AddBankDetail(this, _passwordManager).Show();
     }
 }

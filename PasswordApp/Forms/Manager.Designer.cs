@@ -39,7 +39,7 @@
             this.AddBankDetailButton = new System.Windows.Forms.Button();
             this.AddCreditCardButton = new System.Windows.Forms.Button();
             this.ControlLoginDetailsTitle = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize) (this.LoginDetailTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoginDetailTable)).BeginInit();
             this.ControlLoginDetails.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,6 +123,7 @@
             this.AddBankDetailButton.TabIndex = 5;
             this.AddBankDetailButton.Text = "Add Bank Detail";
             this.AddBankDetailButton.UseVisualStyleBackColor = true;
+            this.AddBankDetailButton.Click += new System.EventHandler(this.AddBankDetailButton_Click);
             // 
             // AddCreditCardButton
             // 
@@ -132,10 +133,11 @@
             this.AddCreditCardButton.TabIndex = 4;
             this.AddCreditCardButton.Text = "Add Credit Card";
             this.AddCreditCardButton.UseVisualStyleBackColor = true;
+            this.AddCreditCardButton.Click += new System.EventHandler(this.AddCreditCardButton_Click);
             // 
             // ControlLoginDetailsTitle
             // 
-            this.ControlLoginDetailsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.ControlLoginDetailsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ControlLoginDetailsTitle.Location = new System.Drawing.Point(0, 2);
             this.ControlLoginDetailsTitle.Name = "ControlLoginDetailsTitle";
             this.ControlLoginDetailsTitle.Size = new System.Drawing.Size(346, 28);
@@ -154,7 +156,7 @@
             this.Controls.Add(this.LoginDetailTable);
             this.Name = "Manager";
             this.Text = "PasswordManager";
-            ((System.ComponentModel.ISupportInitialize) (this.LoginDetailTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoginDetailTable)).EndInit();
             this.ControlLoginDetails.ResumeLayout(false);
             this.ResumeLayout(false);
         }
