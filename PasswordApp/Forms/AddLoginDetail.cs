@@ -36,7 +36,7 @@ namespace PasswordApp.Forms
                 PasswordTextBox.Text,
                 securityQuestions);
             
-            _passwordManager.SaveLoginDetail(loginDetail);
+            _passwordManager.AddLoginDetail(loginDetail);
             _manager.AddToLoginTable(loginDetail.Username, loginDetail.ApplicationName);
             Close();
         }

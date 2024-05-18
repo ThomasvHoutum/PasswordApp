@@ -43,10 +43,10 @@ namespace Domain.Managers
         }
         
         /// <summary>
-        /// Saves a new login detail
+        /// Add a new login detail
         /// </summary>
         /// <param name="loginDetail"></param>
-        public void SaveLoginDetail(LoginDetail loginDetail)
+        public void AddLoginDetail(LoginDetail loginDetail)
         {
             _loginDetails.Add(loginDetail);
             var encryptedLoginDetails = EncryptionHelper.Encrypt(_loginDetails);
@@ -54,7 +54,7 @@ namespace Domain.Managers
         }
 
         /// <summary>
-        /// 
+        /// Decrypt all account entries
         /// </summary>
         private void DecryptAllAccountEntries()
         {
