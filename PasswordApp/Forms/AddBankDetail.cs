@@ -33,7 +33,7 @@ namespace PasswordApp.Forms
                 UsernameTextBox.Text,
                 PasswordTextBox.Text);
             
-            _passwordManager.AddBankDetail(bankDetail);
+            _passwordManager.BankDetailRepository.Add(bankDetail);
             _manager.AddToLoginTable(bankDetail.BankName, bankDetail.Username);
             Close();
         }

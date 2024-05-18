@@ -1,6 +1,8 @@
+using Shared.Interfaces;
+
 namespace Shared.Dtos;
 
-public class BankDetail
+public class BankDetail : IAccountEntry
 {
     public string BankName { get; private set; }
         

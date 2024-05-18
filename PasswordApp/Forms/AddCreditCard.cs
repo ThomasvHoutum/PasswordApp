@@ -33,8 +33,8 @@ namespace PasswordApp.Forms
                 ExpiryDateFieldPicker.Value,
                 double.Parse(CvvTextBox.Text),
                 BillingAddressTextBox.Text);
-            
-            _passwordManager.AddCreditCard(creditCard);
+
+            _passwordManager.CreditCardRepository.Add(creditCard);
             _manager.AddToLoginTable(creditCard.Issuer, creditCard.Number.ToString());
             Close();
         }

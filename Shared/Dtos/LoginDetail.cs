@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using Shared.Interfaces;
 
 namespace Shared.Dtos;
 
-public class LoginDetail
+public class LoginDetail : IAccountEntry
 {
     public string ApplicationName { get; private set; }
         

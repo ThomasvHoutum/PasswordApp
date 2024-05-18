@@ -1,8 +1,9 @@
 using System;
+using Shared.Interfaces;
 
 namespace Shared.Dtos;
 
-public class CreditCard
+public class CreditCard : IAccountEntry
 {
     public string Issuer { get; private set; }
         

@@ -46,6 +46,7 @@
         <Compile Include="Dtos\LoginDetail.cs" />
         <Compile Include="Dtos\SecurityQuestion.cs" />
         <Compile Include="Dtos\User.cs" />
+        <Compile Include="Interfaces\IAccountEntry.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
