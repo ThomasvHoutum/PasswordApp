@@ -39,8 +39,12 @@
             this.AddBankDetailButton = new System.Windows.Forms.Button();
             this.AddCreditCardButton = new System.Windows.Forms.Button();
             this.ControlLoginDetailsTitle = new System.Windows.Forms.Label();
+            this.SearchPanel = new System.Windows.Forms.Panel();
+            this.SearchTextBox = new System.Windows.Forms.TextBox();
+            this.SearchLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.LoginDetailTable)).BeginInit();
             this.ControlLoginDetails.SuspendLayout();
+            this.SearchPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // LoginDetailTable
@@ -112,7 +116,7 @@
             this.ControlLoginDetails.Controls.Add(this.AddLoginDetailButton);
             this.ControlLoginDetails.Location = new System.Drawing.Point(12, 231);
             this.ControlLoginDetails.Name = "ControlLoginDetails";
-            this.ControlLoginDetails.Size = new System.Drawing.Size(346, 207);
+            this.ControlLoginDetails.Size = new System.Drawing.Size(381, 207);
             this.ControlLoginDetails.TabIndex = 2;
             // 
             // AddBankDetailButton
@@ -144,6 +148,34 @@
             this.ControlLoginDetailsTitle.TabIndex = 3;
             this.ControlLoginDetailsTitle.Text = "Control login details";
             // 
+            // SearchPanel
+            // 
+            this.SearchPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SearchPanel.Controls.Add(this.SearchTextBox);
+            this.SearchPanel.Controls.Add(this.SearchLabel);
+            this.SearchPanel.Location = new System.Drawing.Point(399, 231);
+            this.SearchPanel.Name = "SearchPanel";
+            this.SearchPanel.Size = new System.Drawing.Size(389, 207);
+            this.SearchPanel.TabIndex = 6;
+            // 
+            // SearchTextBox
+            // 
+            this.SearchTextBox.Location = new System.Drawing.Point(42, 94);
+            this.SearchTextBox.Name = "SearchTextBox";
+            this.SearchTextBox.Size = new System.Drawing.Size(317, 20);
+            this.SearchTextBox.TabIndex = 7;
+            this.SearchTextBox.Text = "Search...";
+            this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
+            // 
+            // SearchLabel
+            // 
+            this.SearchLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchLabel.Location = new System.Drawing.Point(3, 2);
+            this.SearchLabel.Name = "SearchLabel";
+            this.SearchLabel.Size = new System.Drawing.Size(346, 28);
+            this.SearchLabel.TabIndex = 6;
+            this.SearchLabel.Text = "Search";
+            // 
             // Manager
             // 
             this.AccessibleName = "";
@@ -152,14 +184,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SearchPanel);
             this.Controls.Add(this.ControlLoginDetails);
             this.Controls.Add(this.LoginDetailTable);
             this.Name = "Manager";
             this.Text = "PasswordManager";
             ((System.ComponentModel.ISupportInitialize)(this.LoginDetailTable)).EndInit();
             this.ControlLoginDetails.ResumeLayout(false);
+            this.SearchPanel.ResumeLayout(false);
+            this.SearchPanel.PerformLayout();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.TextBox SearchTextBox;
+
+        private System.Windows.Forms.Panel SearchPanel;
+        private System.Windows.Forms.Label SearchLabel;
 
         private System.Windows.Forms.Button AddCreditCardButton;
         private System.Windows.Forms.Button AddBankDetailButton;

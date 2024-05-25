@@ -26,7 +26,7 @@ public class AuthenticationManager
 
         ActiveUser = new User(password);
         var encryptedString = EncryptionHelper.Encrypt(ActiveUser);
-        FileHelper.WriteMasterPasswordFile(encryptedString);
+        FileHelper.WriteFile("MasterPassword.json", encryptedString);
     }
 
     /// <summary>
@@ -79,7 +79,7 @@ public class AuthenticationManager
     /// <returns> Master password, null if none set</returns>
     private User? DecryptMasterPassword()
     {
-        var encryptedPassword = FileHelper.ReadMasterPasswordFile();
+        var encryptedPassword = FileHelper.ReadFile("MasterPassword.json");
         return encryptedPassword != null
             ? EncryptionHelper.Decrypt<User>(encryptedPassword)
             : null;

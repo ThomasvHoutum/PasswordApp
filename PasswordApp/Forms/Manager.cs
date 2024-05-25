@@ -55,13 +55,13 @@ namespace PasswordApp.Forms
         {
             LoginDetailTable.AllowUserToAddRows = false;
             
-            foreach (var loginDetail in _passwordManager.LoginDetails)
+            foreach (var loginDetail in _passwordManager.LoginDetailRepository.Entries)
                 LoginDetailTable.Rows.Add(loginDetail.Username, loginDetail.ApplicationName);
             
-            foreach (var creditCard in _passwordManager.CreditCards)
+            foreach (var creditCard in _passwordManager.CreditCardRepository.Entries)
                 LoginDetailTable.Rows.Add(creditCard.Issuer, creditCard.Number.ToString());
             
-            foreach (var bankDetail in _passwordManager.BankDetails)
+            foreach (var bankDetail in _passwordManager.BankDetailRepository.Entries)
                 LoginDetailTable.Rows.Add(bankDetail.BankName, bankDetail.Username);
         }
         
