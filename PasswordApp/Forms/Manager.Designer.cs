@@ -164,7 +164,6 @@
             this.SearchTextBox.Name = "SearchTextBox";
             this.SearchTextBox.Size = new System.Drawing.Size(317, 20);
             this.SearchTextBox.TabIndex = 7;
-            this.SearchTextBox.Text = "Search...";
             this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
             // 
             // SearchLabel

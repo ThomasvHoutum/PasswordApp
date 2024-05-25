@@ -8,6 +8,7 @@ namespace PasswordApp.Forms
     {
         private readonly AuthenticationManager _authenticationManager;
         private PasswordManager _passwordManager;
+        private SearchManager _searchManager;
         
         public Manager(AuthenticationManager authenticationManager)
         {
@@ -43,6 +44,7 @@ namespace PasswordApp.Forms
         private void Initialize()
         {
             _passwordManager = new PasswordManager();
+            _searchManager = new SearchManager(_passwordManager);
             InitializeComponent();
             
             PopulateLoginDetailTable();
@@ -54,6 +56,7 @@ namespace PasswordApp.Forms
         private void PopulateLoginDetailTable()
         {
             LoginDetailTable.AllowUserToAddRows = false;
+            LoginDetailTable.Rows.Clear();
             
             foreach (var loginDetail in _passwordManager.LoginDetailRepository.Entries)
                 LoginDetailTable.Rows.Add(loginDetail.Username, loginDetail.ApplicationName);
@@ -75,7 +78,7 @@ namespace PasswordApp.Forms
 
         private void ModifyButton_Pressed(int rowIndex)
         {
-            // Get table entry based on rowindex
+            // TODO: Get table entry based on rowindex
         }
 
         private void AddLoginDetailButton_Click(object sender, EventArgs e) => 
@@ -86,5 +89,32 @@ namespace PasswordApp.Forms
 
         private void AddBankDetailButton_Click(object sender, EventArgs e) =>
             new AddBankDetail(this, _passwordManager).Show();
+
+        private void SearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var searchQuery = SearchTextBox.Text;
+            
+            // If no search query, reset the table
+            if (string.IsNullOrEmpty(searchQuery))
+            {
+                PopulateLoginDetailTable();
+                return;
+            }
+            
+            var filteredBankDetails = _searchManager.Search(_passwordManager.BankDetailRepository.Entries, searchQuery);
+            var filteredCreditCards = _searchManager.Search(_passwordManager.CreditCardRepository.Entries, searchQuery);
+            var filteredLoginDetails = _searchManager.Search(_passwordManager.LoginDetailRepository.Entries, searchQuery);
+            
+            LoginDetailTable.Rows.Clear();
+            
+            foreach (var bankDetail in filteredBankDetails)
+                LoginDetailTable.Rows.Add(bankDetail.BankName, bankDetail.Username);
+            
+            foreach (var creditCard in filteredCreditCards)
+                LoginDetailTable.Rows.Add(creditCard.Issuer, creditCard.Number.ToString());
+            
+            foreach (var loginDetail in filteredLoginDetails)
+                LoginDetailTable.Rows.Add(loginDetail.Username, loginDetail.ApplicationName);
+        }
     }
 }
