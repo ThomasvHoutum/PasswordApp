@@ -39,9 +39,7 @@ public class AccountEntryRepository<T> where T : IAccountEntry
     {
         var fileContent = FileHelper.ReadFile(typeof(T).Name + ".json");
         if (fileContent != null)
-        {
             _entries = EncryptionHelper.Decrypt<List<T>>(fileContent);
-        }
     }
 
     /// <summary>
