@@ -44,7 +44,7 @@ namespace PasswordApp.Forms
         private void Initialize()
         {
             _passwordManager = new PasswordManager();
-            _searchManager = new SearchManager(_passwordManager);
+            _searchManager = new SearchManager();
             InitializeComponent();
             
             PopulateLoginDetailTable();
@@ -90,6 +90,11 @@ namespace PasswordApp.Forms
         private void AddBankDetailButton_Click(object sender, EventArgs e) =>
             new AddBankDetail(this, _passwordManager).Show();
 
+        /// <summary>
+        ///  On every input change, filter the repositories based on the search query
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchTextBox_TextChanged(object sender, EventArgs e)
         {
             var searchQuery = SearchTextBox.Text;

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -8,13 +7,6 @@ namespace Domain.Managers;
 
 public class SearchManager
 {
-    private PasswordManager _passwordManager;
-    
-    public SearchManager(PasswordManager passwordManager)
-    {
-        _passwordManager = passwordManager;
-    }
-    
     /// <summary>
     /// Search for entries in the repository
     /// </summary>
