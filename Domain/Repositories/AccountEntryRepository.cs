@@ -18,6 +18,18 @@ public class AccountEntryRepository<T> where T : IAccountEntry
     {
         _entries.Add(entry);
         SaveToFile();
+    
+    /// <summary>
+    /// Remove an entry from the repository
+    /// </summary>
+    /// <param name="entry"></param>
+    /// <param name="saveToFile"></param>
+    public void Remove(T entry, bool saveToFile = true)
+    {
+        _entries.Remove(entry);
+        
+        if (saveToFile)
+            SaveToFile();
     }
 
     /// <summary>
