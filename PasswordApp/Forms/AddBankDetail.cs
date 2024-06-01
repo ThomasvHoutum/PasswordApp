@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Windows.Forms;
 using Domain.Managers;
+using PasswordApp.Results;
 using Shared.Dtos;
 
 namespace PasswordApp.Forms
@@ -21,9 +22,10 @@ namespace PasswordApp.Forms
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (!ValidTextFields())
+            var validationResult = ValidTextFields();
+            if (!validationResult.Success)
             {
-                MessageBox.Show("Invalid input!", "Failed to create credit card", MessageBoxButtons.OK);
+                MessageBox.Show(validationResult.Reason, "Failed to create credit card", MessageBoxButtons.OK);
                 return;
             }
             
@@ -44,22 +46,21 @@ namespace PasswordApp.Forms
         /// Validate input fields
         /// </summary>
         /// <returns></returns>
-        private bool ValidTextFields()
+        private ValidationResult ValidTextFields()
         {
-            if (BankNameTextBox.Text == null)
-                return false;
+            if (string.IsNullOrEmpty(BankNameTextBox.Text))
+                return new ValidationResult(false, "Bank name is required");
             
-            // TODO make char.IsDigit into string extension method
-            if (IbanTextBox.Text == null || IbanTextBox.Text.Any(c => char.IsLetter(c)))
-                return false;
+            if (string.IsNullOrEmpty(IbanTextBox.Text))
+                return new ValidationResult(false, "IBAN is required");
             
-            if (UsernameTextBox.Text == null)
-                return false;
+            if (string.IsNullOrEmpty(UsernameTextBox.Text))
+                return new ValidationResult(false, "Username is required");
             
-            if (PasswordTextBox.Text == null)
-                return false;
+            if (string.IsNullOrEmpty(PasswordTextBox.Text))
+                return new ValidationResult(false, "Password is required");
             
-            return true;
+            return new ValidationResult(true);
         }
     }
 }

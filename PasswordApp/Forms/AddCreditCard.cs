@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Windows.Forms;
 using Domain.Managers;
+using PasswordApp.Results;
 using Shared.Dtos;
 
 namespace PasswordApp.Forms
@@ -21,9 +22,10 @@ namespace PasswordApp.Forms
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (!ValidTextFields())
+            var validationResult = ValidTextFields();
+            if (!validationResult.Success)
             {
-                MessageBox.Show("Invalid input!", "Failed to create credit card", MessageBoxButtons.OK);
+                MessageBox.Show(validationResult.Reason, "Failed to create credit card", MessageBoxButtons.OK);
                 return;
             }
             
@@ -45,22 +47,27 @@ namespace PasswordApp.Forms
         /// Validate input fields
         /// </summary>
         /// <returns></returns>
-        private bool ValidTextFields()
+        private ValidationResult ValidTextFields()
         {
-            if (IssuerTextBox.Text == null)
-                return false;
+            if (string.IsNullOrEmpty(IssuerTextBox.Text))
+                return new ValidationResult(false, "Issuer is required");
             
-            // TODO make char.IsDigit into string extension method
-            if (NumberTextBox.Text == null || NumberTextBox.Text.Any(c => char.IsLetter(c)))
-                return false;
+            if (string.IsNullOrEmpty(NumberTextBox.Text))
+                return new ValidationResult(false, "Number is required");
             
-            if (CvvTextBox.Text == null || CvvTextBox.Text.Any(c => char.IsLetter(c)))
-                return false;
+            if (NumberTextBox.Text.Any(char.IsLetter))
+                return new ValidationResult(false, "Number field can only contain numbers");
             
-            if (BillingAddressTextBox.Text == null)
-                return false;
+            if (string.IsNullOrEmpty(CvvTextBox.Text))
+                return new ValidationResult(false, "CVV is required");
             
-            return true;
+            if (CvvTextBox.Text.Any(char.IsLetter))
+                return new ValidationResult(false, "CVV field can only contain numbers");
+            
+            if (string.IsNullOrEmpty(BillingAddressTextBox.Text))
+                return new ValidationResult(false, "Billing address is required");
+            
+            return new ValidationResult(true);
         }
     }
 }
