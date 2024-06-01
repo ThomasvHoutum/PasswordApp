@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Domain.Managers;
+using PasswordApp.Results;
 using Shared.Dtos;
 
 namespace PasswordApp.Forms
@@ -21,9 +22,10 @@ namespace PasswordApp.Forms
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (!ValidTextFields())
+            var validationResult = ValidTextFields();
+            if (!validationResult.Success)
             {
-                MessageBox.Show("Invalid input!", "Failed to create login", MessageBoxButtons.OK);
+                MessageBox.Show(validationResult.Reason, "Failed to create login", MessageBoxButtons.OK);
                 return;
             }
 
@@ -47,21 +49,24 @@ namespace PasswordApp.Forms
         /// Validate input fields
         /// </summary>
         /// <returns></returns>
-        private bool ValidTextFields()
+        private ValidationResult ValidTextFields()
         {
-            if (ApplicationTextBox.Text == null)
-                return false;
+            if (string.IsNullOrEmpty(ApplicationTextBox.Text))
+                return new ValidationResult(false, "Application is required");
 
-            if (UsernameTextBox.Text == null)
-                return false;
+            if (string.IsNullOrEmpty(UsernameTextBox.Text))
+                return new ValidationResult(false, "Username is required");
+            
+            if (string.IsNullOrEmpty(EmailTextBox.Text))
+                return new ValidationResult(false, "Email is required");
+            
+            if (!EmailTextBox.Text.Contains("@") || !EmailTextBox.Text.Contains("."))
+                return new ValidationResult(false, "Email must contain @ and .");
+            
+            if (string.IsNullOrEmpty(PasswordTextBox.Text))
+                return new ValidationResult(false, "Password is required");
 
-            if (EmailTextBox.Text == null || !EmailTextBox.Text.Contains("@") || !EmailTextBox.Text.Contains("."))
-                return false;
-
-            if (PasswordTextBox.Text == null)
-                return false;
-
-            return true;
+            return new ValidationResult(true);
         }
 
         /// <summary>
