@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Domain.Managers;
+using Infrastructure.Helpers;
 
 namespace PasswordApp.Forms
 {
@@ -43,7 +44,7 @@ namespace PasswordApp.Forms
         /// </summary>
         private void Initialize()
         {
-            _passwordManager = new PasswordManager();
+            _passwordManager = new PasswordManager(new FileHelper(), new EncryptionHelper());
             _searchManager = new SearchManager();
             InitializeComponent();
             

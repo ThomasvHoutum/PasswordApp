@@ -1,18 +1,19 @@
 using System;
 using System.Security.Cryptography;
 using System.Text;
+using Domain.Interfaces;
 using Newtonsoft.Json;
 
 namespace Infrastructure.Helpers;
 
-public static class EncryptionHelper
+public class EncryptionHelper : IEncryptionHelper
 {
     /// <summary>
     /// Convert undefined object to an encrypted string
     /// </summary>
     /// <param name="objectToEncrypt"></param>
     /// <returns></returns>
-    public static string Encrypt<T>(T objectToEncrypt)
+    public string Encrypt<T>(T objectToEncrypt)
     {
         var jsonObject = JsonConvert.SerializeObject(objectToEncrypt);
         var data = Encoding.UTF8.GetBytes(jsonObject);
@@ -25,7 +26,7 @@ public static class EncryptionHelper
     /// </summary>
     /// <param name="encryptedText"></param>
     /// <returns></returns>
-    public static T Decrypt<T>(string encryptedText)
+    public T Decrypt<T>(string encryptedText)
     {
         var encryptedData = Convert.FromBase64String(encryptedText);
         var decryptedData = ProtectedData.Unprotect(encryptedData, null, DataProtectionScope.CurrentUser);

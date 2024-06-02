@@ -159,6 +159,8 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Interfaces\IEncryptionHelper.cs" />
+        <Compile Include="Interfaces\IFileHelper.cs" />
         <Compile Include="Managers\AuthenticationManager.cs" />
         <Compile Include="Managers\PasswordManager.cs" />
         <Compile Include="Managers\SearchManager.cs" />
@@ -173,14 +175,9 @@
     <ItemGroup>
       <Folder Include="Dtos\" />
       <Folder Include="Helpers\" />
-      <Folder Include="Interfaces\" />
       <Folder Include="Services\" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
-        <Project>{4962af41-433d-4168-8202-38e717bf0f81}</Project>
-        <Name>Infrastructure</Name>
-      </ProjectReference>
       <ProjectReference Include="..\Shared\Shared.csproj">
         <Project>{8567cdfa-4b80-4700-9f71-de1c5bcf9425}</Project>
         <Name>Shared</Name>

@@ -1,17 +1,21 @@
 #nullable enable
+using Domain.Interfaces;
 using Domain.Results;
-using Infrastructure.Helpers;
 using Shared.Dtos;
 
 namespace Domain.Managers;
 
 public class AuthenticationManager
 {
+    private readonly IFileHelper _fileHelper;
+    private readonly IEncryptionHelper _encryptionHelper;
+    
     private User? ActiveUser { get; set; }
 
-    public AuthenticationManager()
+    public AuthenticationManager(IFileHelper fileHelper, IEncryptionHelper encryptionHelper)
     {
-        
+        _fileHelper = fileHelper;
+        _encryptionHelper = encryptionHelper;
     }
     
     /// <summary>
@@ -25,8 +29,8 @@ public class AuthenticationManager
             return;
 
         ActiveUser = new User(password);
-        var encryptedString = EncryptionHelper.Encrypt(ActiveUser);
-        FileHelper.WriteFile("MasterPassword.json", encryptedString);
+        var encryptedString = _encryptionHelper.Encrypt(ActiveUser);
+        _fileHelper.WriteFile("MasterPassword.json", encryptedString);
     }
 
     /// <summary>
@@ -79,9 +83,9 @@ public class AuthenticationManager
     /// <returns> Master password, null if none set</returns>
     private User? DecryptMasterPassword()
     {
-        var encryptedPassword = FileHelper.ReadFile("MasterPassword.json");
+        var encryptedPassword = _fileHelper.ReadFile("MasterPassword.json");
         return encryptedPassword != null
-            ? EncryptionHelper.Decrypt<User>(encryptedPassword)
+            ? _encryptionHelper.Decrypt<User>(encryptedPassword)
             : null;
     }
 }

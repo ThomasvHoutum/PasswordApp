@@ -1,15 +1,24 @@
 using System.Collections.Generic;
-using Infrastructure.Helpers;
+using Domain.Interfaces;
 using Shared.Interfaces;
 
 namespace Domain.Repositories;
 
 public class AccountEntryRepository<T> where T : IAccountEntry
 {
+    private readonly IFileHelper _fileHelper;
+    private readonly IEncryptionHelper _encryptionHelper;
+    
     private List<T> _entries = new();
     
     public IReadOnlyList<T> Entries => _entries.AsReadOnly();
 
+    public AccountEntryRepository(IFileHelper fileHelper, IEncryptionHelper encryptionHelper)
+    {
+        _fileHelper = fileHelper;
+        _encryptionHelper = encryptionHelper;
+    }
+    
     /// <summary>
     /// Add a new entry to the repository
     /// </summary>
@@ -38,9 +47,9 @@ public class AccountEntryRepository<T> where T : IAccountEntry
     /// </summary>
     public void LoadFromFile()
     {
-        var fileContent = FileHelper.ReadFile(typeof(T).Name + ".json");
+        var fileContent = _fileHelper.ReadFile(typeof(T).Name + ".json");
         if (fileContent != null)
-            _entries = EncryptionHelper.Decrypt<List<T>>(fileContent);
+            _entries = _encryptionHelper.Decrypt<List<T>>(fileContent);
     }
 
     /// <summary>
@@ -48,7 +57,7 @@ public class AccountEntryRepository<T> where T : IAccountEntry
     /// </summary>
     private void SaveToFile()
     {
-        var encryptedEntries = EncryptionHelper.Encrypt(_entries);
-        FileHelper.WriteFile(typeof(T).Name + ".json", encryptedEntries);
+        var encryptedEntries = _encryptionHelper.Encrypt(_entries);
+        _fileHelper.WriteFile(typeof(T).Name + ".json", encryptedEntries);
     }
 }

@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Domain.Managers;
+using Infrastructure.Helpers;
 using PasswordApp.Forms;
 
 namespace PasswordApp
@@ -14,7 +15,7 @@ namespace PasswordApp
         [STAThread]
         private static void Main()
         {
-            _authenticationManager = new AuthenticationManager();
+            _authenticationManager = new AuthenticationManager(new FileHelper(), new EncryptionHelper());
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

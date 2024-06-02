@@ -1,3 +1,4 @@
+using Domain.Interfaces;
 using Domain.Repositories;
 using Shared.Dtos;
 
@@ -11,11 +12,11 @@ namespace Domain.Managers
         
         public AccountEntryRepository<LoginDetail> LoginDetailRepository { get; private set; }
 
-        public PasswordManager()
+        public PasswordManager(IFileHelper fileHelper, IEncryptionHelper encryptionHelper)
         {
-            CreditCardRepository = new AccountEntryRepository<CreditCard>();
-            BankDetailRepository = new AccountEntryRepository<BankDetail>();
-            LoginDetailRepository = new AccountEntryRepository<LoginDetail>();
+            CreditCardRepository = new AccountEntryRepository<CreditCard>(fileHelper, encryptionHelper);
+            BankDetailRepository = new AccountEntryRepository<BankDetail>(fileHelper, encryptionHelper);
+            LoginDetailRepository = new AccountEntryRepository<LoginDetail>(fileHelper, encryptionHelper);
 
             DecryptAllAccountEntries();
         }
