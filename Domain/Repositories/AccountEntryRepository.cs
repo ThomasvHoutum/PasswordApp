@@ -25,6 +25,10 @@ public class AccountEntryRepository<T> where T : IAccountEntry
     /// <param name="entry"></param>
     public void Add(T entry)
     {
+        var validationResult = entry.Validate();
+        if (!validationResult.Success)
+            throw new ArgumentException(validationResult.Reason);
+        
         _entries.Add(entry);
         SaveToFile();
     }
