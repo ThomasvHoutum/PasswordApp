@@ -173,11 +173,6 @@
       <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="Dtos\" />
-      <Folder Include="Helpers\" />
-      <Folder Include="Services\" />
-    </ItemGroup>
-    <ItemGroup>
       <ProjectReference Include="..\Shared\Shared.csproj">
         <Project>{8567cdfa-4b80-4700-9f71-de1c5bcf9425}</Project>
         <Name>Shared</Name>
