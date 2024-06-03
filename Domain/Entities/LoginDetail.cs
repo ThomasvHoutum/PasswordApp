@@ -1,7 +1,8 @@
 using System.Collections.Generic;
-using Shared.Interfaces;
+using Domain.Interfaces;
+using Domain.Results;
 
-namespace Shared.Dtos;
+namespace Domain.Entities;
 
 public class LoginDetail : IAccountEntry
 {
@@ -22,5 +23,22 @@ public class LoginDetail : IAccountEntry
         Email = email;
         Password = password;
         SecurityQuestions = securityQuestions;
+    }
+
+    public ValidationResult Validate()
+    {
+        if (string.IsNullOrEmpty(ApplicationName))
+            return new ValidationResult(false, "Application name is required");
+            
+        if (string.IsNullOrEmpty(Username))
+            return new ValidationResult(false, "Username is required");
+            
+        if (string.IsNullOrEmpty(Email))
+            return new ValidationResult(false, "Email is required");
+            
+        if (string.IsNullOrEmpty(Password))
+            return new ValidationResult(false, "Password is required");
+            
+        return new ValidationResult(true);
     }
 }

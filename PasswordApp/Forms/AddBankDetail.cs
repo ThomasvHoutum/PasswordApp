@@ -1,9 +1,8 @@
 using System;
-using System.Linq;
 using System.Windows.Forms;
+using Domain.Entities;
 using Domain.Managers;
 using PasswordApp.Results;
-using Shared.Dtos;
 
 namespace PasswordApp.Forms
 {

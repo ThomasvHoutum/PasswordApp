@@ -159,6 +159,12 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Entities\BankDetail.cs" />
+        <Compile Include="Entities\CreditCard.cs" />
+        <Compile Include="Entities\LoginDetail.cs" />
+        <Compile Include="Entities\SecurityQuestion.cs" />
+        <Compile Include="Entities\User.cs" />
+        <Compile Include="Interfaces\IAccountEntry.cs" />
         <Compile Include="Interfaces\IEncryptionHelper.cs" />
         <Compile Include="Interfaces\IFileHelper.cs" />
         <Compile Include="Managers\AuthenticationManager.cs" />
@@ -167,16 +173,11 @@
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="Repositories\AccountEntryRepository.cs" />
         <Compile Include="Results\LoginResult.cs" />
+        <Compile Include="Results\ValidationResult.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="App.config" />
       <None Include="packages.config" />
-    </ItemGroup>
-    <ItemGroup>
-      <ProjectReference Include="..\Shared\Shared.csproj">
-        <Project>{8567cdfa-4b80-4700-9f71-de1c5bcf9425}</Project>
-        <Name>Shared</Name>
-      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

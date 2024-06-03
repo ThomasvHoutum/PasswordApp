@@ -1,7 +1,7 @@
 #nullable enable
+using Domain.Entities;
 using Domain.Interfaces;
 using Domain.Results;
-using Shared.Dtos;
 
 namespace Domain.Managers;
 

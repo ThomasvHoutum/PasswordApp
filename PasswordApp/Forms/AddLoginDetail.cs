@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Domain.Entities;
 using Domain.Managers;
 using PasswordApp.Results;
-using Shared.Dtos;
 
 namespace PasswordApp.Forms
 {

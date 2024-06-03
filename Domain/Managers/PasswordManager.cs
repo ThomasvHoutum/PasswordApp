@@ -1,6 +1,6 @@
+using Domain.Entities;
 using Domain.Interfaces;
 using Domain.Repositories;
-using Shared.Dtos;
 
 namespace Domain.Managers
 {

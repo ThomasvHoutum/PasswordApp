@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using Domain.Entities;
 using Domain.Managers;
-using Shared.Dtos;
 using Xunit;
 
 namespace Domain.Test
