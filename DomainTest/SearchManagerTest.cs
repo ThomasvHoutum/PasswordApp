@@ -3,7 +3,7 @@ using Domain.Entities;
 using Domain.Managers;
 using Xunit;
 
-namespace Domain.Test
+namespace DomainTest
 {
     public class SearchManagerTest
     {

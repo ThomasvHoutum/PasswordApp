@@ -5,7 +5,7 @@ using Domain.Managers;
 using Infrastructure.Helpers;
 using Xunit;
 
-namespace Domain.Test
+namespace DomainTest
 {
     public class PasswordManagerTest
     {
