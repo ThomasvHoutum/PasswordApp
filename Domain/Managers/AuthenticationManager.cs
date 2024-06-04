@@ -22,15 +22,22 @@ public class AuthenticationManager
     /// Creates a new user with given password as master password
     /// Only possible if there is no active user
     /// </summary>
-    public void SetMasterPassword(string password)
+    public LoginResult SetMasterPassword(string password)
     {
         // Early return if there is already a user logged in
         if (ActiveUser != null)
-            return;
+            return new LoginResult(false, "User already logged in");
 
-        ActiveUser = new User(password);
+        var userToLogin = new User(password);
+        var validationResult = userToLogin.Validate();
+        if (!validationResult.Success)
+            return new LoginResult(false, validationResult.Reason);
+        
+        ActiveUser = userToLogin;
         var encryptedString = _encryptionHelper.Encrypt(ActiveUser);
         _fileHelper.WriteFile("MasterPassword.json", encryptedString);
+        
+        return new LoginResult(true);
     }
 
     /// <summary>

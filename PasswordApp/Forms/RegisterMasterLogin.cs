@@ -19,7 +19,11 @@ namespace PasswordApp.Forms
             if (!ValidPassword())
                 return;
             
-            _authenticationManager.SetMasterPassword(PasswordTextBox.Text);
+            var loginResult = _authenticationManager.SetMasterPassword(PasswordTextBox.Text);
+            
+            if (!loginResult.Success)
+                MessageBox.Show(loginResult.Reason, "Error", MessageBoxButtons.OK);
+            
             Close();
         }
 
