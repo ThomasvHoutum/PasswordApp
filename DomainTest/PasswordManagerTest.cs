@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Domain.Entities;
+using Domain.Interfaces;
 using Domain.Managers;
 using Infrastructure.Helpers;
+using Moq;
 using Xunit;
 
 namespace DomainTest
@@ -15,7 +17,9 @@ namespace DomainTest
         public void AddLoginDetail_ShouldAddEntry()
         {
             // Arrange
-            var passwordManager = new PasswordManager(new FileHelper(), new EncryptionHelper());
+            var mockFileHelper = new Mock<IFileHelper>();
+            var mockEncryptionHelper = new Mock<IEncryptionHelper>();
+            var passwordManager = new PasswordManager(mockFileHelper.Object, mockEncryptionHelper.Object);
             var loginDetail = new LoginDetail("Google", "John Doe", "john@example.com", "password123", new List<SecurityQuestion>());
 
             // Act
@@ -30,7 +34,9 @@ namespace DomainTest
         public void AddLoginDetail_ShouldNotAddEntryWithInvalidUsername()
         {
             // Arrange
-            var passwordManager = new PasswordManager(new FileHelper(), new EncryptionHelper());
+            var mockFileHelper = new Mock<IFileHelper>();
+            var mockEncryptionHelper = new Mock<IEncryptionHelper>();
+            var passwordManager = new PasswordManager(mockFileHelper.Object, mockEncryptionHelper.Object);
             
             // Login detail with invalid username
             var loginDetail = new LoginDetail("Google", "", "john@example.com", "password123", new List<SecurityQuestion>());
@@ -47,7 +53,9 @@ namespace DomainTest
         public void AddBankDetail_ShouldAddEntry()
         {
             // Arrange
-            var passwordManager = new PasswordManager(new FileHelper(), new EncryptionHelper());
+            var mockFileHelper = new Mock<IFileHelper>();
+            var mockEncryptionHelper = new Mock<IEncryptionHelper>();
+            var passwordManager = new PasswordManager(mockFileHelper.Object, mockEncryptionHelper.Object);
             var bankDetail = new BankDetail("ING", 1111111111, "John Doe", "password123");
 
             // Act
@@ -62,7 +70,9 @@ namespace DomainTest
         public void AddBankDetail_ShouldNotAddEntryWithInvalidUsername()
         {
             // Arrange
-            var passwordManager = new PasswordManager(new FileHelper(), new EncryptionHelper());
+            var mockFileHelper = new Mock<IFileHelper>();
+            var mockEncryptionHelper = new Mock<IEncryptionHelper>();
+            var passwordManager = new PasswordManager(mockFileHelper.Object, mockEncryptionHelper.Object);
             
             // Login detail with invalid username
             var bankDetail = new BankDetail("", 1111111111, "John Doe", "password123");
@@ -79,7 +89,10 @@ namespace DomainTest
         public void AddCreditCard_ShouldAddEntry()
         {
             // Arrange
-            var passwordManager = new PasswordManager(new FileHelper(), new EncryptionHelper());
+            var mockFileHelper = new Mock<IFileHelper>();
+            var mockEncryptionHelper = new Mock<IEncryptionHelper>();
+            var passwordManager = new PasswordManager(mockFileHelper.Object, mockEncryptionHelper.Object);
+            
             var creditCard = new CreditCard("John Doe", 1111111111, DateTime.Now, 1, "address123");
 
             // Act
@@ -94,7 +107,9 @@ namespace DomainTest
         public void AddCreditCard_ShouldNotAddEntryWithInvalidIssuer()
         {
             // Arrange
-            var passwordManager = new PasswordManager(new FileHelper(), new EncryptionHelper());
+            var mockFileHelper = new Mock<IFileHelper>();
+            var mockEncryptionHelper = new Mock<IEncryptionHelper>();
+            var passwordManager = new PasswordManager(mockFileHelper.Object, mockEncryptionHelper.Object);
             
             // Login detail with invalid username
             var creditCard = new CreditCard("", 1111111111, DateTime.Now, 1, "address123");
