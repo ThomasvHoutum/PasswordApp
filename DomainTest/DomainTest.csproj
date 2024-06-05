@@ -75,10 +75,6 @@
         <Project>{6f797daf-9a4c-4172-9cbd-99ba1fe2e6f2}</Project>
         <Name>Domain</Name>
       </ProjectReference>
-      <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
-        <Project>{4962af41-433d-4168-8202-38e717bf0f81}</Project>
-        <Name>Infrastructure</Name>
-      </ProjectReference>
     </ItemGroup>
     <ItemGroup>
       <None Include="App.config" />
