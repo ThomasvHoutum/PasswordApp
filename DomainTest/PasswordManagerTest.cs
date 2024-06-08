@@ -43,6 +43,18 @@ namespace DomainTest
             // Assert
             Assert.Throws<ArgumentException>(() => passwordManager.LoginDetailRepository.Add(loginDetail));
         }
+
+        [Fact]
+        public void LoginDetail_ShouldHaveStrongPassword()
+        {
+            // Arrange
+            var loginDetail = new LoginDetail("Google", "John Doe", "john@example.com", "", new List<SecurityQuestion>(), generatePassword: true);
+            
+            // Assert
+            Assert.True(loginDetail.Password.Length == 16);
+            Assert.Contains(loginDetail.Password, char.IsUpper);
+            Assert.Contains(loginDetail.Password, char.IsDigit);
+        }
         
         #endregion
         
@@ -78,6 +90,19 @@ namespace DomainTest
 
             // Assert
             Assert.Throws<ArgumentException>(() => passwordManager.BankDetailRepository.Add(bankDetail));
+        }
+        
+        [Fact]
+        public void BankDetail_ShouldHaveStrongPassword()
+        {
+            // Arrange
+            var bankDetail = new BankDetail("ING", 1111111111, "John Doe", "", generatePassword: true);
+            
+            // Assert
+            Assert.True(bankDetail.Password.Length == 32);
+            Assert.Contains(bankDetail.Password, char.IsUpper);
+            Assert.Contains(bankDetail.Password, char.IsDigit);
+            Assert.Contains(bankDetail.Password, c => "!@#$%^&*()".Contains(c.ToString()));
         }
         
         #endregion
