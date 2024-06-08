@@ -18,12 +18,18 @@ public class WebLogin : ILoginType
         var random = new Random();
         
         var password = new StringBuilder(_passwordLength);
+        
+        // Add at least one random capital character
         password.Append(_capitalCharacters[random.Next(_capitalCharacters.Length)]);
+        
+        // Add at least one random number character
         password.Append(_numberCharacters[random.Next(_numberCharacters.Length)]);
 
+        // Add random characters
         for (var i = 2; i < _passwordLength; i++)
             password.Append(_characters[random.Next(_characters.Length)]);
 
+        // Shuffle the password
         return new string(password.ToString().OrderBy(c => random.Next()).ToArray());
     }
 }

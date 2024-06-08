@@ -19,10 +19,17 @@ public class BankLogin : ILoginType
     public string GeneratePassword()
     {
         var password = new StringBuilder(_passwordLength);
+        
+        // Add at least one random capital character
         password.Append(GetRandomCharacter(_capitalCharacters));
+        
+        // Add at least one random number character
         password.Append(GetRandomCharacter(_numberCharacters));
+        
+        // Add at least one random special character
         password.Append(GetRandomCharacter(_specialCharacters));
 
+        // Add random characters using a cryptographically secure random number generator
         var data = new byte[4 * (_passwordLength - 3)];
         using (var random = new RNGCryptoServiceProvider())
         {
@@ -36,6 +43,7 @@ public class BankLogin : ILoginType
             password.Append(_characters[idx]);
         }
 
+        // Shuffle the password
         return new string(password.ToString().OrderBy(c => GetRandomIndex()).ToArray());
     }
 
