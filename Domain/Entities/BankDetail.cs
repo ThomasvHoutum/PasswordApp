@@ -14,12 +14,12 @@ public class BankDetail : BankLogin, IAccountEntry
         
     public string Password { get; private set; }
 
-    public BankDetail(string bankName, double iban, string username, string password)
+    public BankDetail(string bankName, double iban, string username, string password, bool generatePassword = false)
     {
         BankName = bankName;
         Iban = iban;
         Username = username;
-        Password = password;
+        Password = generatePassword ? GeneratePassword() : password;
     }
     
     public ValidationResult Validate()

@@ -38,6 +38,8 @@ namespace PasswordApp.Forms
             this.BankNameTextBox = new System.Windows.Forms.TextBox();
             this.BankNameLabel = new System.Windows.Forms.Label();
             this.BankDetailPanel = new System.Windows.Forms.Panel();
+            this.GeneratePasswordCheckbox = new System.Windows.Forms.CheckBox();
+            this.GeneratePasswordLabel = new System.Windows.Forms.Label();
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.UsernameLabel = new System.Windows.Forms.Label();
@@ -108,6 +110,8 @@ namespace PasswordApp.Forms
             // BankDetailPanel
             // 
             this.BankDetailPanel.AutoScroll = true;
+            this.BankDetailPanel.Controls.Add(this.GeneratePasswordCheckbox);
+            this.BankDetailPanel.Controls.Add(this.GeneratePasswordLabel);
             this.BankDetailPanel.Controls.Add(this.PasswordLabel);
             this.BankDetailPanel.Controls.Add(this.PasswordTextBox);
             this.BankDetailPanel.Controls.Add(this.UsernameLabel);
@@ -120,6 +124,24 @@ namespace PasswordApp.Forms
             this.BankDetailPanel.Name = "BankDetailPanel";
             this.BankDetailPanel.Size = new System.Drawing.Size(333, 343);
             this.BankDetailPanel.TabIndex = 12;
+            // 
+            // GeneratePasswordCheckbox
+            // 
+            this.GeneratePasswordCheckbox.Location = new System.Drawing.Point(114, 102);
+            this.GeneratePasswordCheckbox.Name = "GeneratePasswordCheckbox";
+            this.GeneratePasswordCheckbox.Size = new System.Drawing.Size(15, 24);
+            this.GeneratePasswordCheckbox.TabIndex = 22;
+            this.GeneratePasswordCheckbox.UseVisualStyleBackColor = true;
+            this.GeneratePasswordCheckbox.CheckedChanged += new System.EventHandler(this.GeneratePasswordCheckbox_CheckedChanged);
+            // 
+            // GeneratePasswordLabel
+            // 
+            this.GeneratePasswordLabel.Location = new System.Drawing.Point(3, 104);
+            this.GeneratePasswordLabel.Name = "GeneratePasswordLabel";
+            this.GeneratePasswordLabel.Size = new System.Drawing.Size(105, 18);
+            this.GeneratePasswordLabel.TabIndex = 21;
+            this.GeneratePasswordLabel.Text = "Generate Password";
+            this.GeneratePasswordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PasswordLabel
             // 
@@ -185,6 +207,10 @@ namespace PasswordApp.Forms
             this.BankDetailPanel.PerformLayout();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.CheckBox GeneratePasswordCheckbox;
+
+        private System.Windows.Forms.Label GeneratePasswordLabel;
 
         private System.Windows.Forms.Label PasswordLabel;
         private System.Windows.Forms.TextBox PasswordTextBox;

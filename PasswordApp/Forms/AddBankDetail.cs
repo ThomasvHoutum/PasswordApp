@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Windows.Forms;
 using Domain.Entities;
 using Domain.Managers;
@@ -32,7 +33,8 @@ namespace PasswordApp.Forms
                 BankNameTextBox.Text,
                 double.Parse(IbanTextBox.Text),
                 UsernameTextBox.Text,
-                PasswordTextBox.Text);
+                PasswordTextBox.Text,
+                GeneratePasswordCheckbox.Checked);
             
             _passwordManager.BankDetailRepository.Add(bankDetail);
             _manager.AddToLoginTable(bankDetail.BankName, bankDetail.Username);
@@ -50,16 +52,33 @@ namespace PasswordApp.Forms
             if (string.IsNullOrEmpty(BankNameTextBox.Text))
                 return new ValidationResult(false, "Bank name is required");
             
-            if (string.IsNullOrEmpty(IbanTextBox.Text))
-                return new ValidationResult(false, "IBAN is required");
+            if (IbanTextBox.Text.Any(char.IsLetter))
+                return new ValidationResult(false, "IBAN can be numbers only");
             
             if (string.IsNullOrEmpty(UsernameTextBox.Text))
                 return new ValidationResult(false, "Username is required");
             
-            if (string.IsNullOrEmpty(PasswordTextBox.Text))
+            if (!GeneratePasswordCheckbox.Checked && string.IsNullOrEmpty(PasswordTextBox.Text))
                 return new ValidationResult(false, "Password is required");
             
             return new ValidationResult(true);
+        }
+
+        private void GeneratePasswordCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            switch (GeneratePasswordCheckbox.Checked)
+            {
+                case true:
+                    PasswordLabel.Text = "Password";
+                    PasswordLabel.Enabled = false;
+                    PasswordTextBox.Enabled = false;
+                    break;
+                case false:
+                    PasswordLabel.Text = "Password *";
+                    PasswordLabel.Enabled = true;
+                    PasswordTextBox.Enabled = true;
+                    break;
+            }
         }
     }
 }
