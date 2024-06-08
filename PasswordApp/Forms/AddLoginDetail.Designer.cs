@@ -40,6 +40,7 @@ namespace PasswordApp.Forms
             this.DiscardButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.LoginDetailPanel = new System.Windows.Forms.Panel();
+            this.GeneratePasswordLabel = new System.Windows.Forms.Label();
             this.Answer3Label = new System.Windows.Forms.Label();
             this.Answer3TextBox = new System.Windows.Forms.TextBox();
             this.Question3Label = new System.Windows.Forms.Label();
@@ -57,6 +58,7 @@ namespace PasswordApp.Forms
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.ApplicationLabel = new System.Windows.Forms.Label();
             this.ApplicationTextBox = new System.Windows.Forms.TextBox();
+            this.GeneratePasswordCheckbox = new System.Windows.Forms.CheckBox();
             this.LoginDetailPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,6 +140,8 @@ namespace PasswordApp.Forms
             // LoginDetailPanel
             // 
             this.LoginDetailPanel.AutoScroll = true;
+            this.LoginDetailPanel.Controls.Add(this.GeneratePasswordCheckbox);
+            this.LoginDetailPanel.Controls.Add(this.GeneratePasswordLabel);
             this.LoginDetailPanel.Controls.Add(this.Answer3Label);
             this.LoginDetailPanel.Controls.Add(this.Answer3TextBox);
             this.LoginDetailPanel.Controls.Add(this.Question3Label);
@@ -164,9 +168,18 @@ namespace PasswordApp.Forms
             this.LoginDetailPanel.Size = new System.Drawing.Size(333, 343);
             this.LoginDetailPanel.TabIndex = 12;
             // 
+            // GeneratePasswordLabel
+            // 
+            this.GeneratePasswordLabel.Location = new System.Drawing.Point(0, 107);
+            this.GeneratePasswordLabel.Name = "GeneratePasswordLabel";
+            this.GeneratePasswordLabel.Size = new System.Drawing.Size(106, 18);
+            this.GeneratePasswordLabel.TabIndex = 26;
+            this.GeneratePasswordLabel.Text = "Generate Password";
+            this.GeneratePasswordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Answer3Label
             // 
-            this.Answer3Label.Location = new System.Drawing.Point(1, 298);
+            this.Answer3Label.Location = new System.Drawing.Point(4, 317);
             this.Answer3Label.Name = "Answer3Label";
             this.Answer3Label.Size = new System.Drawing.Size(95, 18);
             this.Answer3Label.TabIndex = 24;
@@ -175,14 +188,14 @@ namespace PasswordApp.Forms
             // 
             // Answer3TextBox
             // 
-            this.Answer3TextBox.Location = new System.Drawing.Point(101, 298);
+            this.Answer3TextBox.Location = new System.Drawing.Point(104, 317);
             this.Answer3TextBox.Name = "Answer3TextBox";
             this.Answer3TextBox.Size = new System.Drawing.Size(197, 20);
             this.Answer3TextBox.TabIndex = 25;
             // 
             // Question3Label
             // 
-            this.Question3Label.Location = new System.Drawing.Point(1, 272);
+            this.Question3Label.Location = new System.Drawing.Point(4, 291);
             this.Question3Label.Name = "Question3Label";
             this.Question3Label.Size = new System.Drawing.Size(95, 18);
             this.Question3Label.TabIndex = 22;
@@ -191,7 +204,7 @@ namespace PasswordApp.Forms
             // 
             // Question3TextBox
             // 
-            this.Question3TextBox.Location = new System.Drawing.Point(101, 272);
+            this.Question3TextBox.Location = new System.Drawing.Point(104, 291);
             this.Question3TextBox.Name = "Question3TextBox";
             this.Question3TextBox.Size = new System.Drawing.Size(197, 20);
             this.Question3TextBox.TabIndex = 23;
@@ -199,7 +212,7 @@ namespace PasswordApp.Forms
             // 
             // Answer2Label
             // 
-            this.Answer2Label.Location = new System.Drawing.Point(1, 234);
+            this.Answer2Label.Location = new System.Drawing.Point(4, 253);
             this.Answer2Label.Name = "Answer2Label";
             this.Answer2Label.Size = new System.Drawing.Size(95, 18);
             this.Answer2Label.TabIndex = 20;
@@ -208,7 +221,7 @@ namespace PasswordApp.Forms
             // 
             // Answer2TextBox
             // 
-            this.Answer2TextBox.Location = new System.Drawing.Point(101, 234);
+            this.Answer2TextBox.Location = new System.Drawing.Point(104, 253);
             this.Answer2TextBox.Name = "Answer2TextBox";
             this.Answer2TextBox.Size = new System.Drawing.Size(197, 20);
             this.Answer2TextBox.TabIndex = 21;
@@ -216,7 +229,7 @@ namespace PasswordApp.Forms
             // 
             // Question2Label
             // 
-            this.Question2Label.Location = new System.Drawing.Point(1, 208);
+            this.Question2Label.Location = new System.Drawing.Point(4, 227);
             this.Question2Label.Name = "Question2Label";
             this.Question2Label.Size = new System.Drawing.Size(95, 18);
             this.Question2Label.TabIndex = 18;
@@ -225,7 +238,7 @@ namespace PasswordApp.Forms
             // 
             // Question2TextBox
             // 
-            this.Question2TextBox.Location = new System.Drawing.Point(101, 208);
+            this.Question2TextBox.Location = new System.Drawing.Point(104, 227);
             this.Question2TextBox.Name = "Question2TextBox";
             this.Question2TextBox.Size = new System.Drawing.Size(197, 20);
             this.Question2TextBox.TabIndex = 19;
@@ -233,7 +246,7 @@ namespace PasswordApp.Forms
             // 
             // Answer1Label
             // 
-            this.Answer1Label.Location = new System.Drawing.Point(1, 172);
+            this.Answer1Label.Location = new System.Drawing.Point(4, 191);
             this.Answer1Label.Name = "Answer1Label";
             this.Answer1Label.Size = new System.Drawing.Size(95, 18);
             this.Answer1Label.TabIndex = 16;
@@ -242,7 +255,7 @@ namespace PasswordApp.Forms
             // 
             // Answer1TextBox
             // 
-            this.Answer1TextBox.Location = new System.Drawing.Point(101, 172);
+            this.Answer1TextBox.Location = new System.Drawing.Point(104, 191);
             this.Answer1TextBox.Name = "Answer1TextBox";
             this.Answer1TextBox.Size = new System.Drawing.Size(197, 20);
             this.Answer1TextBox.TabIndex = 17;
@@ -250,7 +263,7 @@ namespace PasswordApp.Forms
             // 
             // SecurityQuestionsLabel
             // 
-            this.SecurityQuestionsLabel.Location = new System.Drawing.Point(0, 118);
+            this.SecurityQuestionsLabel.Location = new System.Drawing.Point(3, 137);
             this.SecurityQuestionsLabel.Name = "SecurityQuestionsLabel";
             this.SecurityQuestionsLabel.Size = new System.Drawing.Size(95, 18);
             this.SecurityQuestionsLabel.TabIndex = 15;
@@ -259,7 +272,7 @@ namespace PasswordApp.Forms
             // 
             // Question1Label
             // 
-            this.Question1Label.Location = new System.Drawing.Point(1, 146);
+            this.Question1Label.Location = new System.Drawing.Point(4, 165);
             this.Question1Label.Name = "Question1Label";
             this.Question1Label.Size = new System.Drawing.Size(95, 18);
             this.Question1Label.TabIndex = 13;
@@ -268,7 +281,7 @@ namespace PasswordApp.Forms
             // 
             // Question1TextBox
             // 
-            this.Question1TextBox.Location = new System.Drawing.Point(101, 146);
+            this.Question1TextBox.Location = new System.Drawing.Point(104, 165);
             this.Question1TextBox.Name = "Question1TextBox";
             this.Question1TextBox.Size = new System.Drawing.Size(197, 20);
             this.Question1TextBox.TabIndex = 14;
@@ -306,6 +319,15 @@ namespace PasswordApp.Forms
             this.ApplicationTextBox.Size = new System.Drawing.Size(197, 20);
             this.ApplicationTextBox.TabIndex = 10;
             // 
+            // GeneratePasswordCheckbox
+            // 
+            this.GeneratePasswordCheckbox.Location = new System.Drawing.Point(112, 107);
+            this.GeneratePasswordCheckbox.Name = "GeneratePasswordCheckbox";
+            this.GeneratePasswordCheckbox.Size = new System.Drawing.Size(29, 21);
+            this.GeneratePasswordCheckbox.TabIndex = 27;
+            this.GeneratePasswordCheckbox.UseVisualStyleBackColor = true;
+            this.GeneratePasswordCheckbox.CheckedChanged += new System.EventHandler(this.GeneratePasswordCheckbox_CheckedChanged);
+            // 
             // AddLoginDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -322,6 +344,10 @@ namespace PasswordApp.Forms
             this.LoginDetailPanel.PerformLayout();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.CheckBox GeneratePasswordCheckbox;
+
+        private System.Windows.Forms.Label GeneratePasswordLabel;
 
         private System.Windows.Forms.Label Question2Label;
         private System.Windows.Forms.Label Answer2Label;

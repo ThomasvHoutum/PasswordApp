@@ -17,12 +17,12 @@ public class LoginDetail : WebLogin, IAccountEntry
         
     public List<SecurityQuestion> SecurityQuestions { get; private set; }
 
-    public LoginDetail(string applicationName, string username, string email, string password, List<SecurityQuestion> securityQuestions)
+    public LoginDetail(string applicationName, string username, string email, string password, List<SecurityQuestion> securityQuestions, bool generatePassword = false)
     {
         ApplicationName = applicationName;
         Username = username;
         Email = email;
-        Password = password;
+        Password = generatePassword ? GeneratePassword() : password;
         SecurityQuestions = securityQuestions;
     }
 

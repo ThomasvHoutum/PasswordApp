@@ -36,7 +36,8 @@ namespace PasswordApp.Forms
                 UsernameTextBox.Text, 
                 EmailTextBox.Text,
                 PasswordTextBox.Text,
-                securityQuestions);
+                securityQuestions,
+                generatePassword: GeneratePasswordCheckbox.Checked);
             
             _passwordManager.LoginDetailRepository.Add(loginDetail);
             _manager.AddToLoginTable(loginDetail.Username, loginDetail.ApplicationName);
@@ -63,7 +64,7 @@ namespace PasswordApp.Forms
             if (!EmailTextBox.Text.Contains("@") || !EmailTextBox.Text.Contains("."))
                 return new ValidationResult(false, "Email must contain @ and .");
             
-            if (string.IsNullOrEmpty(PasswordTextBox.Text))
+            if (!GeneratePasswordCheckbox.Checked && string.IsNullOrEmpty(PasswordTextBox.Text))
                 return new ValidationResult(false, "Password is required");
 
             return new ValidationResult(true);
@@ -87,6 +88,23 @@ namespace PasswordApp.Forms
                 securityQuestions.Add(new SecurityQuestion(Question3TextBox.Text, Answer3TextBox.Text));
             
             return securityQuestions;
+        }
+
+        private void GeneratePasswordCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            switch (GeneratePasswordCheckbox.Checked)
+            {
+                case true:
+                    PasswordLabel.Text = "Password";
+                    PasswordLabel.Enabled = false;
+                    PasswordTextBox.Enabled = false;
+                    break;
+                case false:
+                    PasswordLabel.Text = "Password *";
+                    PasswordLabel.Enabled = true;
+                    PasswordTextBox.Enabled = true;
+                    break;
+            }
         }
     }
 }
