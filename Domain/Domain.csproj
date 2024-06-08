@@ -167,6 +167,9 @@
         <Compile Include="Interfaces\IAccountEntry.cs" />
         <Compile Include="Interfaces\IEncryptionHelper.cs" />
         <Compile Include="Interfaces\IFileHelper.cs" />
+        <Compile Include="Interfaces\ILoginType.cs" />
+        <Compile Include="LoginTypes\BankLogin.cs" />
+        <Compile Include="LoginTypes\WebLogin.cs" />
         <Compile Include="Managers\AuthenticationManager.cs" />
         <Compile Include="Managers\PasswordManager.cs" />
         <Compile Include="Managers\SearchManager.cs" />

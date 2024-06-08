@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using Domain.Interfaces;
+using Domain.LoginTypes;
 using Domain.Results;
 
 namespace Domain.Entities;
 
-public class LoginDetail : IAccountEntry
+public class LoginDetail : WebLogin, IAccountEntry
 {
     public string ApplicationName { get; private set; }
         

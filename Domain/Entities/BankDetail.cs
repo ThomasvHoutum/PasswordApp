@@ -1,9 +1,10 @@
 using Domain.Interfaces;
+using Domain.LoginTypes;
 using Domain.Results;
 
 namespace Domain.Entities;
 
-public class BankDetail : IAccountEntry
+public class BankDetail : BankLogin, IAccountEntry
 {
     public string BankName { get; private set; }
         

@@ -1,10 +1,11 @@
 using System;
 using Domain.Interfaces;
+using Domain.LoginTypes;
 using Domain.Results;
 
 namespace Domain.Entities;
 
-public class CreditCard : IAccountEntry
+public class CreditCard : BankLogin, IAccountEntry
 {
     public string Issuer { get; private set; }
         
