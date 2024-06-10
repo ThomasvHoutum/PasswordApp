@@ -3,7 +3,7 @@ using Domain.Results;
 
 namespace Domain.Entities;
 
-public class User : IAccountEntry
+public class User
 {
     public string MasterPassword { get; private set; }
 
