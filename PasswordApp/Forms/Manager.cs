@@ -79,7 +79,6 @@ namespace PasswordApp.Forms
 
         private void ModifyButton_Pressed(int rowIndex)
         {
-            // TODO: Get table entry based on rowindex
         }
 
         private void AddLoginDetailButton_Click(object sender, EventArgs e) => 

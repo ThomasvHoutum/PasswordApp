@@ -64,7 +64,6 @@ public class AuthenticationManager
     /// <returns>Logout success</returns>
     public bool TryLogoutUser()
     {
-        // TODO
         return false;
     }
 
